@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IconStyleWrapper, OptionButton, Ul, Li } from '../../../styles/components/Nav/RightNav';
 
 import { signOut } from "next-auth/client";
@@ -6,8 +6,12 @@ import { signOut } from "next-auth/client";
 import { LogOut } from '@styled-icons/ionicons-outline/LogOut'
 import { PersonCircle } from '@styled-icons/bootstrap/PersonCircle'
 import { Home } from '@styled-icons/boxicons-regular/Home'
+import { useRouter } from 'next/router';
 
 const RightNav = ({ open }) => {
+  const router = useRouter();
+  const [isSelected, setIsSelected] = useState(false);
+
   useEffect(() => {
     if (window.innerWidth <= 768) {
       return (
@@ -51,12 +55,16 @@ const RightNav = ({ open }) => {
 
   return (
     <Ul open={open}>
-      <Li>
+      <Li className={
+        router.pathname === '/' && 'isSelected'
+      }>
         <a href="/">
           Home
         </a>
       </Li>
-      <Li>
+      <Li className={
+        router.pathname === '/profile' && 'isSelected'
+      }>
         <a href="/profile">
           Perfil
         </a>

@@ -29,7 +29,7 @@ export const Ul = styled.ul`
   }
 `;
 
-export const Li = styled.li`
+export const Li = styled.li.attrs(props => { className: props.className })`
   display: inline-block;
   position: relative;
   cursor: pointer;
@@ -50,6 +50,11 @@ export const Li = styled.li`
   &:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+  }
+
+  &.isSelected{
+    border-bottom: 2px solid #0070f3;
+    pointer-events: none;
   }
 `;
 
