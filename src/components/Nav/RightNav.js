@@ -1,5 +1,5 @@
-import React from 'react';
-import { IconStyleWrapper, OptionButton, Ul } from '../../../styles/components/Nav/RightNav';
+import React, { useEffect } from 'react';
+import { IconStyleWrapper, OptionButton, Ul, Li } from '../../../styles/components/Nav/RightNav';
 
 import { signOut } from "next-auth/client";
 
@@ -8,48 +8,66 @@ import { PersonCircle } from '@styled-icons/bootstrap/PersonCircle'
 import { Home } from '@styled-icons/boxicons-regular/Home'
 
 const RightNav = ({ open }) => {
-  if (window.innerWidth <= 768) {
-    return (
-      <Ul open={open}>
-        <OptionButton>
-          <li>Home</li>
-          <IconStyleWrapper>
-            <Home/>
-          </IconStyleWrapper>
-        </OptionButton>
-        <OptionButton>
-          <li>Perfil</li>
-          <IconStyleWrapper>
-            <PersonCircle/>
-          </IconStyleWrapper>
-        </OptionButton>
-        <OptionButton>
-          <li>
-            <div onClick={() => signOut()}>
-              <a>
-                Sair
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      return (
+        <Ul open={open}>
+          <OptionButton>
+            <li>
+              <a href="/">
+                Home
               </a>
-            </div>
-          </li>
-          <IconStyleWrapper>
-            <LogOut/>
-          </IconStyleWrapper>
-        </OptionButton>
-      </Ul>
-    )
-  }
+            </li>
+            <IconStyleWrapper>
+              <Home/>
+            </IconStyleWrapper>
+          </OptionButton>
+          <OptionButton>
+            <li>
+              <a href="/profile">
+                Perfil
+              </a>
+            </li>
+            <IconStyleWrapper>
+              <PersonCircle/>
+            </IconStyleWrapper>
+          </OptionButton>
+          <OptionButton>
+            <li>
+              <div onClick={() => signOut()}>
+                <a>
+                  Sair
+                </a>
+              </div>
+            </li>
+            <IconStyleWrapper>
+              <LogOut/>
+            </IconStyleWrapper>
+          </OptionButton>
+        </Ul>
+      )
+    }
+  }, []);
 
   return (
     <Ul open={open}>
-      <li>Home</li>
-      <li>Perfil</li>
-      <li>
+      <Li>
+        <a href="/">
+          Home
+        </a>
+      </Li>
+      <Li>
+        <a href="/profile">
+          Perfil
+        </a>
+      </Li>
+      <Li>
         <div onClick={() => signOut()}>
           <a>
             Sair
           </a>
         </div>
-      </li>
+      </Li>
     </Ul>
   )
   

@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 import {StyledIconBase} from '@styled-icons/styled-icon'
-import { LogOut } from '@styled-icons/ionicons-outline/LogOut'
-import { PersonCircle } from '@styled-icons/bootstrap/PersonCircle'
-import { Home } from '@styled-icons/boxicons-regular/Home'
 
 export const Ul = styled.ul`
   list-style: none;
@@ -11,9 +8,7 @@ export const Ul = styled.ul`
   li {
     padding: 18px 10px;
   }
-  a {
-    cursor: pointer;
-  }
+
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: #489fb5ff;
@@ -31,6 +26,30 @@ export const Ul = styled.ul`
     li {
       color: #ede7e3ff;
     }
+  }
+`;
+
+export const Li = styled.li`
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0070f3;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+
+  }
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 `;
 

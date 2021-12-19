@@ -13,7 +13,7 @@ export const Container = styled.div`
     rgba(72,159,181,1) 80%, 
     rgba(22,105,122,1) 100%
   );
-`
+`;
 
 export const LoginBox = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ export const LoginBox = styled.div`
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 6px;
-`
+`;
 
 export const LogoContainer = styled.div`
   img {
@@ -37,20 +37,43 @@ export const LogoContainer = styled.div`
     width: 150px;
     border-radius: 50%;
   }
-`
+`;
 export const LoginButton = styled.button`
   height: 40px;
   width: 90px;
   background: #16697aff;
   color: #ede7e3ff;
   border: none;
-  border-radius: 6px;
+  border-radius: 2px;
+  /* padding: 12px 40px 10px; */
+  position: relative;
   cursor: pointer;
+  outline: none;
 
-  &:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-    transition: transform .3s ease;
+  &:before,
+  &:after {
+    border: 0 solid transparent;
+    transition: all 0.3s;
+    content: '';
+    height: 0;
+    position: absolute;
+    width: 15px;
   }
-`
+
+  :before {
+    border-top: 2px solid #16697aff;
+    right: 0;
+    top: -4px;
+  }
+
+  :after {
+    border-bottom: 2px solid #16697aff;
+    bottom: -4px;
+    left: 0;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+  }
+`;
