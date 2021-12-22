@@ -3,14 +3,17 @@ import { IconStyleWrapper, OptionButton, Ul, Li } from '../../../styles/componen
 
 import { signOut } from "next-auth/client";
 
+import { ThemeSwitcher } from '../ThemeSwitcher';
+
 import { LogOut } from '@styled-icons/ionicons-outline/LogOut'
 import { PersonCircle } from '@styled-icons/bootstrap/PersonCircle'
 import { Home } from '@styled-icons/boxicons-regular/Home'
-import { useRouter } from 'next/router';
 
-const RightNav = ({ open }) => {
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+const RightNav = ({ open, toggleTheme }) => {
   const router = useRouter();
-  const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth <= 768) {
@@ -18,9 +21,11 @@ const RightNav = ({ open }) => {
         <Ul open={open}>
           <OptionButton>
             <li>
-              <a href="/">
-                Home
-              </a>
+              <Link href="/">
+                <a>
+                  Home
+                </a>
+              </Link>
             </li>
             <IconStyleWrapper>
               <Home/>
@@ -28,9 +33,11 @@ const RightNav = ({ open }) => {
           </OptionButton>
           <OptionButton>
             <li>
-              <a href="/profile">
-                Perfil
-              </a>
+              <Link href="/profile">
+                <a>
+                  Perfil
+                </a>
+              </Link>
             </li>
             <IconStyleWrapper>
               <PersonCircle/>
@@ -54,29 +61,36 @@ const RightNav = ({ open }) => {
   }, []);
 
   return (
-    <Ul open={open}>
-      <Li className={
-        router.pathname === '/' && 'isSelected'
-      }>
-        <a href="/">
-          Home
-        </a>
-      </Li>
-      <Li className={
-        router.pathname === '/profile' && 'isSelected'
-      }>
-        <a href="/profile">
-          Perfil
-        </a>
-      </Li>
-      <Li>
-        <div onClick={() => signOut()}>
-          <a>
-            Sair
-          </a>
-        </div>
-      </Li>
-    </Ul>
+    <>
+      <Ul open={open}>
+        <Li className={
+          router.pathname === '/' && 'isSelected'
+        }>
+          <Link href="/">
+            <a>
+              Home
+            </a>
+          </Link>
+        </Li>
+        <Li className={
+          router.pathname === '/profile' && 'isSelected'
+        }>
+          <Link href="/profile">
+            <a>
+              Perfil
+            </a>
+          </Link>
+        </Li>
+        <Li>
+          <div onClick={() => signOut()}>
+            <a>
+              Sair
+            </a>
+          </div>
+        </Li>
+      </Ul>
+      <ThemeSwitcher handleToggleTheme={toggleTheme}/>
+    </>
   )
   
 }

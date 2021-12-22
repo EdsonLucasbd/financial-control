@@ -7,11 +7,12 @@ export const Ul = styled.ul`
   flex-flow: row nowrap;
   li {
     padding: 18px 10px;
+    color: var(--text);
   }
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #489fb5ff;
+    background-color: var(--blue);
     -webkit-box-shadow: 1px 0px 15px -4px #000000; 
     box-shadow: 1px 0px 15px -4px #000000;
     position: absolute;
@@ -19,13 +20,10 @@ export const Ul = styled.ul`
     top: 0;
     right: 0;
     height: 100vh;
-    width: 300px;
+    width: 200px;
     padding-top: 3.5rem;
     margin-top: 0;
     transition: transform 0.3s ease-in-out;
-    li {
-      color: #ede7e3ff;
-    }
   }
 `;
 
@@ -42,7 +40,7 @@ export const Li = styled.li.attrs(props => { className: props.className })`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #0070f3;
+    background-color: var(--text);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 
@@ -53,7 +51,7 @@ export const Li = styled.li.attrs(props => { className: props.className })`
   }
 
   &.isSelected{
-    border-bottom: 2px solid #0070f3;
+    border-bottom: 2px solid var(--text);
     pointer-events: none;
   }
 `;

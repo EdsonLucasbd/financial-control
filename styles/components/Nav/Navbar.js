@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav`
+  background: var(--blue);
   width: 100%;
   border-bottom: 1px solid #00000010;
   padding: 0 30px;

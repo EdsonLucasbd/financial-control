@@ -1,34 +1,36 @@
-import Head from 'next/head'
 import { useSession } from "next-auth/client"
+
 import Redirect from '../src/components/Redirect';
-import { Footer, LinkPortfolio, Main, Container } from '../styles/pages/home';
-import Navbar from '../src/components/Nav/Navbar';
+import { Container, Main } from '../styles/pages/home';
+import DefaultFooter from '../src/components/DefaultFooter';
+import DefaultHeader from '../src/components/DefaultHeader';
+import Navbar from "../src/components/Nav/Navbar";
+
+import light from '../styles/theme/light'
+import dark from '../styles/theme/dark';
+import usePersistedState from "../src/utils/usePersistedState";
 
 export default function Home() {
+  const [theme, setTheme] = usePersistedState('theme', light);
   const [ session ] = useSession();
+
+  const toggleTheme = () => {
+    setTheme(theme.title === 'light' ? dark : light);
+  };
   
   if (!session) {
     return <Redirect to="/login" />
   } else {
     return (
       <Container>
-        <Head>
-          <title>Home | Controle Financeiro</title>
-          <meta name="description" content="Controle suas despesas" />
-          <link rel="icon" href="/fav-2.ico" />
-        </Head>
+        <DefaultHeader pageTitle={'Home'} />
   
         <Main>
-          <Navbar />
+          <Navbar toggleTheme={toggleTheme} />
           Home
         </Main>
-  
-        <Footer>
-            Powered with ❤️ by{' '}
-            <LinkPortfolio>
-              <a href="https://bit.ly/3B3IWPn" target="_blank">Edson Lucas</a>
-            </LinkPortfolio>
-        </Footer>
+
+        <DefaultFooter />
       </Container>
     )
   }
