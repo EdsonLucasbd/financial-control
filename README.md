@@ -4,9 +4,9 @@ Este é um projeto [Next.js](https://nextjs.org/) inicializado com [`create-next
 
 ## Começando
 
- Antes de tudo será necessário criar uma conta [Auth0](https://auth0.com/signup?place=header&type=button&text=sign%20up) para ter suas variáveis de ambiente do arquivo `.env.local` como é explicado no `.env.example`.
+ Antes de tudo será necessário criar uma conta [Auth0](https://auth0.com/signup?place=header&type=button&text=sign%20up) para ter suas variáveis de ambiente do arquivo `.env.local` (que ficará na raiz do projeto) como é explicado no `.env.example`.
 
- Feito isso, instale as dependências:
+ Feito isso, ainda na raiz do projeto, instale as dependências:
 
 ```bash
 npm
