@@ -14,7 +14,8 @@ import Link from 'next/link';
 
 const RightNav = ({ open, toggleTheme }) => {
   const router = useRouter();
-
+  console.log(open, toggleTheme)
+  
   useEffect(() => {
     if (window.innerWidth <= 768) {
       return (
