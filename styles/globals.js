@@ -5,6 +5,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     font: 400 16px Nunito Sans, sans-serif;
+    transition: all 0.50s linear;
   }
 
   a {
@@ -26,4 +27,4 @@ export default createGlobalStyle`
     --box-shadow: ${(props) => props.theme.colors.boxShadow};
   }
 
-`;
+  `;

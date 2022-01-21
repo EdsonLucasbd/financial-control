@@ -2,8 +2,14 @@ import React from "react";
 
 import {
   Container,
+  ModalHead,
   ModalTitle,
+  CloseButton,
   ModalBody,
+  SelectInput,
+  InputGroup,
+  CustomInputAnimated,
+  CustomLabelAnimated,
   ModalFooter,
   SaveButton,
 } from "../../styles/components/Modal";
@@ -11,10 +17,27 @@ import {
 function Modal() {
   return (
     <Container>
-      <ModalTitle>Novo Lançamento</ModalTitle>
+      <ModalHead>
+        <ModalTitle>Novo Lançamento</ModalTitle>
+        <CloseButton />
+      </ModalHead>
       <ModalBody>
-        <input placeholder="Descrição" />
-        <input placeholder="Valor" />
+        <SelectInput>
+          <option value="renda">Renda</option>
+          <option value="moradia">Moradia</option>
+          <option value="alimentacao">Alimentação</option>
+          <option value="investimento">Investimento</option>
+          <option value="cartao">Cartão</option>
+        </SelectInput>
+        <InputGroup>
+          <CustomInputAnimated placeholder=" "/>
+          <CustomLabelAnimated>Descrição</CustomLabelAnimated>
+        </InputGroup>
+
+        <InputGroup>
+          <CustomInputAnimated placeholder=" "/>
+          <CustomLabelAnimated>Valor</CustomLabelAnimated>
+        </InputGroup>
       </ModalBody>
 
       <ModalFooter>

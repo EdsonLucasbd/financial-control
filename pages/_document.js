@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt">
         <Head>
-          <meta charset="utf-8" />
+          <meta charSet="utf-8" />
           <meta name="description" content="Controle suas despesas" />
           <link rel="icon" href="/fav-2.ico" />
           <link

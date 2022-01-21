@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { IconStyleWrapper, OptionButton, Ul, Li } from '../../../styles/components/Nav/RightNav';
 
 import { signOut } from "next-auth/client";
@@ -12,10 +12,9 @@ import { Home } from '@styled-icons/boxicons-regular/Home'
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-const RightNav = ({ open, toggleTheme }) => {
+const RightNav = ({ open, handleToggleTheme }) => {
   const router = useRouter();
-  console.log(open, toggleTheme)
-  
+
   useEffect(() => {
     if (window.innerWidth <= 768) {
       return (
@@ -90,7 +89,7 @@ const RightNav = ({ open, toggleTheme }) => {
           </div>
         </Li>
       </Ul>
-      <ThemeSwitcher handleToggleTheme={toggleTheme}/>
+      <ThemeSwitcher handleToggleTheme={handleToggleTheme}/>
     </>
   )
   

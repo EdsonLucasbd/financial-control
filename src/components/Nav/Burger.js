@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyledBurger } from '../../../styles/components/Nav/Burger';
 import RightNav from './RightNav';
 
-const Burger = () => {
+const Burger = ({ toogleThemeFunction }) => {
   const [open, setOpen] = useState(false)
   
   return (
@@ -12,7 +12,7 @@ const Burger = () => {
         <div />
         <div />
       </StyledBurger>
-      <RightNav open={open}/>
+      <RightNav open={open} handleToggleTheme={toogleThemeFunction} />
     </>
   )
 };

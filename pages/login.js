@@ -9,6 +9,7 @@ export default function login() {
 	if (session) {{
 		return <Redirect to="/"/>
 	}} 
+
 	return (
 		<Container>
 			<DefaultHeader pageTitle={'Login'} />

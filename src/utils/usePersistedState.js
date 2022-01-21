@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 
 function usePersistedState({key, initialState}) {
+  if(key === undefined) key = 'theme';
+
   const [state, setState] = useState(() => {
     const cookiesValue = Cookies.get(key);
 
@@ -13,7 +15,7 @@ function usePersistedState({key, initialState}) {
   });
 
   useEffect(() => {
-    Cookies.set(key, JSON.stringify(state));
+    Cookies.set(key, JSON.stringify(state), { expires: 7 });
   }, [key, state]);
 
   return [state, setState];
