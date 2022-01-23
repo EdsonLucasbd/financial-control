@@ -5,6 +5,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: -0.5%;
   background: rgb(237,231,227);
   background: linear-gradient(
     324deg, 

@@ -8,7 +8,9 @@ export const Container = styled.div`
   width: 578px;
   height: 469px;
   background: var(--background);
+  /* border: 1px solid ${(props) => props.theme.colors.boxShadow}; */
   border-radius: 4px;
+  box-shadow: 0 4px 4px 0 ${(props) => props.theme.colors.boxShadow};
 `;
 
 export const ModalHead = styled.div`
@@ -79,6 +81,16 @@ export const CustomInputAnimated = styled.input`
     margin-top: 0;
     color: var(--blue);
   }
+
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  &[type="number"] {
+      -moz-appearance: textfield;
+  }
+
 `;
 
 export const CustomLabelAnimated = styled.label`

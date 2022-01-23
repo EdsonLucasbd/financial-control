@@ -7,9 +7,10 @@ export const Footer = styled.div`
   /* width: 100vw; */
   color: var(--text);
   border-top: 1px solid #00000010;
-  background: var(--blue);
+  background: ${({ theme }) => theme.colors.backgroundHeader};
   justify-content: center;
   align-items: center;
+  transition: background 0.3s linear;
 `
 
 export const LinkPortfolio = styled.span`
@@ -19,6 +20,6 @@ export const LinkPortfolio = styled.span`
   transition: .2s ease;
 
   &:hover {
-    color: #0070f3
+    color: ${({ theme }) => theme.colors.linkHover}
   }
 `

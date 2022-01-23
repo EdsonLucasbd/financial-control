@@ -1,5 +1,5 @@
 import React from 'react';
-import { Provider } from "next-auth/client"
+import { Provider } from "next-auth/client";
 
 export default function MyApp({ 
   Component,

@@ -30,12 +30,12 @@ function Modal() {
           <option value="cartao">Cartão</option>
         </SelectInput>
         <InputGroup>
-          <CustomInputAnimated placeholder=" "/>
+          <CustomInputAnimated placeholder=" " type="text"/>
           <CustomLabelAnimated>Descrição</CustomLabelAnimated>
         </InputGroup>
 
         <InputGroup>
-          <CustomInputAnimated placeholder=" "/>
+          <CustomInputAnimated placeholder=" " type="number"/>
           <CustomLabelAnimated>Valor</CustomLabelAnimated>
         </InputGroup>
       </ModalBody>

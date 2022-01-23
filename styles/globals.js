@@ -5,7 +5,6 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     font: 400 16px Nunito Sans, sans-serif;
-    transition: all 0.50s linear;
   }
 
   a {
@@ -18,13 +17,15 @@ export default createGlobalStyle`
   }
 
   :root {
-    --blue: ${(props) => props.theme.colors.blue};
-    --green: ${(props) => props.theme.colors.green};
-    --yellow: ${(props) => props.theme.colors.yellow};
-    --background: ${(props) => props.theme.colors.background};
-    --coral: ${(props) => props.theme.colors.coral};
-    --text: ${(props) => props.theme.colors.text};
-    --box-shadow: ${(props) => props.theme.colors.boxShadow};
+    --blue: ${({ theme }) => theme.colors.blue};
+    --link-hover: ${({ theme }) => theme.colors.linkHover};
+    --green: ${({ theme }) => theme.colors.green};
+    --yellow: ${({ theme }) => theme.colors.yellow};
+    --background: ${({ theme }) => theme.colors.background};
+    --background-header: ${({ theme }) => theme.colors.backgroundHeader};
+    --coral: ${({ theme }) => theme.colors.coral};
+    --text: ${({ theme }) => theme.colors.text};
+    --box-shadow: ${({ theme }) => theme.colors.boxShadow};
   }
 
   `;

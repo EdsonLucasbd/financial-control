@@ -12,7 +12,7 @@ export const Ul = styled.ul`
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: var(--blue);
+    background-color: ${( props ) => props.theme.colors.backgroundHeader};
     -webkit-box-shadow: 1px 0px 15px -4px #000000; 
     box-shadow: 1px 0px 15px -4px #000000;
     position: absolute;
